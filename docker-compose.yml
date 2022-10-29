@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  rasa:
+    image: rasa/rasa:3.3.0-full
+    container_name: rasa
+    ports:
+      - 5005:5005
+    volumes:
+      - ./rasa-server-data:/app
+    command:
+      - run
+  rasa-sdk:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.rasa-sdk
+    container_name: rasa-sdk
+    expose: 
+      - 5055
