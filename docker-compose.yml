@@ -6,7 +6,7 @@ services:
     ports:
       - 5005:5005
     volumes:
-      - ./rasa-server-data:/app
+      - rasa-data:/app
     command:
       - run
   rasa-sdk:
@@ -16,3 +16,6 @@ services:
     container_name: rasa-sdk
     expose: 
       - 5055
+
+volumes:
+  rasa-data:
